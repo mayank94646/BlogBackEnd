@@ -52,5 +52,7 @@ public class UserService {
         }
         return result;
     }
-
+    public Users viewingUser(int id) {
+        return usersRepository.findByUserId(id);
+    }
 }

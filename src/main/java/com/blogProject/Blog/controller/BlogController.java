@@ -48,4 +48,7 @@ public class BlogController {
         }
         return blogs;
     }
+    @GetMapping("/viewBlogs/{userId}")
+    public List<Blogs> viewBlogs(@PathVariable int userId) { return blogService.toGet(userId); }
+
 }

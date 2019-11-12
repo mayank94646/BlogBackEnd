@@ -9,7 +9,16 @@ public class Following {
     private int followingId;
     @ManyToOne
     private Users workingUser;
+    @ManyToOne
+    private Users following;
 
+    public Following() {
+    }
+
+    public Following(Users currentUser, Users following) {
+        this.workingUser = currentUser;
+        this.following = following;
+    }
     public int getFollowingId() {
         return followingId;
     }
@@ -33,9 +42,5 @@ public class Following {
     public void setFollowing(Users following) {
         this.following = following;
     }
-
-    @ManyToOne
-    private Users following;
-
 
 }

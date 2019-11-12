@@ -69,4 +69,8 @@ public class BlogService {
         }
         return result;
     }
+    public List<Blogs> toGet(int userId) {
+        Users viewUser = userRepository.findByUserId(userId);
+        return blogRepository.findAllByUserId(viewUser);
+    }
 }

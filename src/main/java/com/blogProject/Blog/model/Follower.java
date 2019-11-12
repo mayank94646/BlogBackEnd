@@ -12,6 +12,14 @@ public class Follower {
     @ManyToOne
     private Users follower;
 
+    public Follower() {
+    }
+
+    public Follower(Users workingUser, Users follower) {
+        this.workingUser = workingUser;
+        this.follower = follower;
+    }
+
     public int getFollowerId() {
         return followerId;
     }

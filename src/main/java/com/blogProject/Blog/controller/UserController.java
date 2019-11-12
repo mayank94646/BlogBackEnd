@@ -43,4 +43,9 @@ public class UserController
         Set<Users> users = userService.findUser(searchedItem, userService.getUserId(principal));
         return users;
     }
+    @GetMapping("/viewUser/{id}")
+    public Users viewUser(@PathVariable int id)
+    {
+        return userService.viewingUser(id);
+    }
 }
