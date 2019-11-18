@@ -36,7 +36,8 @@ public class BlogController {
     public String deleteBlog(@PathVariable int id) {  return  blogService.deleteBlog(id); }
 
     @PostMapping("/editBlog")
-    public Blogs editBlog(@RequestBody Blogs blog) { return blogService.editBlog(blog); }
+    public Blogs editBlog(@RequestBody Blogs blog)
+    { return blogService.editBlog(blog); }
 
     @GetMapping("/getBlog/{id}")
     public Blogs getBlog(@PathVariable int id) { return blogService.getBlog(id); }
@@ -51,4 +52,14 @@ public class BlogController {
     @GetMapping("/viewBlogs/{userId}")
     public List<Blogs> viewBlogs(@PathVariable int userId) { return blogService.toGet(userId); }
 
+     @GetMapping("/makePrivate/{id}")
+    public void makeprivate(@PathVariable int id )
+     {
+          blogService.makePrivate(id);
+     }
+    @GetMapping("/makePublic/{id}")
+    public void makepublic(@PathVariable int id )
+    {
+        blogService.makePublic(id);
+    }
 }

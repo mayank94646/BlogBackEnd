@@ -39,7 +39,8 @@ public class UserController
         return userService.changeUserDetails(user);
     }
     @GetMapping("/searchUser/{searchedItem}")
-    public Set<Users> searchUser(@PathVariable("searchedItem") String searchedItem, Principal principal) {
+    public Set<Users> searchUser(@PathVariable("searchedItem") String searchedItem, Principal principal)
+    {
         Set<Users> users = userService.findUser(searchedItem, userService.getUserId(principal));
         return users;
     }

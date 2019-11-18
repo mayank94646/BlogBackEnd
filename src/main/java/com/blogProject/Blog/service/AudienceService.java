@@ -25,9 +25,9 @@ public class AudienceService {
 
 
     public boolean checkFollowing(int currentUser, int userId) {
-        Users checkedUser= userRepository.findByUserId(currentUser);
-        Users checkingUser = userRepository.findByUserId(userId);
-     if(followingRepository.findAllByFollowingAndAndWorkingUser(checkedUser,checkingUser)!=null)
+        Users current= userRepository.findByUserId(currentUser);
+        Users follow = userRepository.findByUserId(userId);
+     if(followingRepository.findAllByFollowingAndAndWorkingUser(follow,current)!=null)
      {
      return true;
      }
@@ -55,15 +55,16 @@ public class AudienceService {
         Users loggedInUser = userRepository.findByUserId(currentUser);
         Users viewingUser = userRepository.findByUserId(userId);
 
-        if(followingRepository.findAllByFollowingAndAndWorkingUser(loggedInUser, viewingUser) != null) {
-            Following following = (Following) followingRepository.findAllByFollowingAndAndWorkingUser(loggedInUser, viewingUser);
+        if(followingRepository.findAllByFollowingAndAndWorkingUser(viewingUser,loggedInUser) != null) {
+            Following following = (Following) followingRepository.findAllByFollowingAndAndWorkingUser( viewingUser,loggedInUser);
+            System.out.println("done");
             followingRepository.delete(following);
             System.out.println("following");
         }
 
-        if(followerRepository.findAllByWorkingUserAndFollower(viewingUser, loggedInUser) != null) {
+        if(followerRepository.findAllByWorkingUserAndFollower(loggedInUser,viewingUser) != null) {
             System.out.println("follower");
-            Follower followers = (Follower) followerRepository.findAllByWorkingUserAndFollower(viewingUser, loggedInUser);
+            Follower followers = (Follower) followerRepository.findAllByWorkingUserAndFollower(loggedInUser,viewingUser);
             followerRepository.delete(followers);
         }
     }

@@ -28,9 +28,8 @@ public class CommentService {
         return commentRepository.save(comment);
 
     }
-
     public List<Comment> getComments(int id) {
-        Blogs currentBlog = blogRepository.getBlogsById(id);
-        return commentRepository.findAllByBlog(currentBlog);
+        Blogs blogs=blogRepository.findById(id);
+        return commentRepository.findAllByBlog(blogs);
     }
 }

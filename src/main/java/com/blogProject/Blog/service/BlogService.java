@@ -73,4 +73,16 @@ public class BlogService {
         Users viewUser = userRepository.findByUserId(userId);
         return blogRepository.findAllByUserId(viewUser);
     }
+    public void makePrivate(int id)
+    {
+        Blogs temp=blogRepository.findById(id);
+          temp.setPrivate("true");
+          blogRepository.saveAndFlush(temp);
+    }
+    public void makePublic(int id)
+    {
+        Blogs temp=blogRepository.findById(id);
+        temp.setPrivate("false");
+        blogRepository.saveAndFlush(temp);
+    }
 }

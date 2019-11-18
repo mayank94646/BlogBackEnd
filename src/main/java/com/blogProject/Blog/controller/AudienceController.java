@@ -40,7 +40,7 @@ public class AudienceController {
         return "\"Followed\"";
     }
 
-    @GetMapping("/unfollowUser/{userId}")
+    @GetMapping("/uncollated/{userId}")
     public String unfollowUser(@PathVariable int userId, Principal principal)
     {
         audienceService.unfollowThisUser(userService.getUserId(principal), userId);

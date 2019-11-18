@@ -12,5 +12,4 @@ public interface BlogRepository extends JpaRepository<Blogs, Integer> {
 
     List<Blogs> findAllByUserId(Users user);
     Blogs findById(int id);
-    Blogs getBlogsById(int id);
 }

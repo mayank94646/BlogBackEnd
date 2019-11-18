@@ -13,7 +13,7 @@ public class Blogs {
     private String title;
     private String author;
     private String content;
-    private Boolean Private = false;
+    private String Private="false";
     @ManyToOne
     private Users userId;
     public String getAuthor() {
@@ -31,11 +31,11 @@ public class Blogs {
         BlogId = blogId;
     }
 
-    public Boolean getPrivate() {
+    public String getPrivate() {
         return Private;
     }
 
-    public void setPrivate(Boolean aPrivate) {
+    public void setPrivate(String aPrivate) {
         Private = aPrivate;
     }
 
@@ -66,4 +66,5 @@ public class Blogs {
     public Users getUserId() { return userId; }
 
     public void setUserId(Users userId) { this.userId = userId; }
+
 }
